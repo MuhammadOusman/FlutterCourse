@@ -43,7 +43,6 @@ class SurahListScreen extends StatelessWidget {
             title: Text(surahNameArabic),
             subtitle: Text(surahNameEnglish, style: const TextStyle(fontSize: 18)),
             onTap: () {
-              // Navigate to SurahDetailScreen
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -82,17 +81,37 @@ class SurahDetailScreen extends StatelessWidget {
               index + 1,
               verseEndSymbol: true,
             );
+            final verseTranslation = quran.getVerseTranslation(
+              surahNumber,
+              index + 1,
+            );
 
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(
-                verseText,
-                textAlign: TextAlign.right,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'Amiri',
-                  height: 1.5,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    verseText,
+                    textAlign: TextAlign.right,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Amiri',
+                      height: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    verseTranslation,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const Divider(),
+                ],
               ),
             );
           },
