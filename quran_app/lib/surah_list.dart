@@ -118,7 +118,7 @@ class _SurahListScreenState extends State<SurahListScreen> {
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
+                          color:Colors.black,
                           blurRadius: 5,
                           offset: const Offset(0, 3),
                         ),
